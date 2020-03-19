@@ -50,14 +50,14 @@ const App = () => {
 
     const toggleCheckTodo = content => {
         const index  = todosTabs.findIndex( el => el.content === content )
-        const newTab = todosTabs
+        const newTab = Array.from( todosTabs )
         newTab[ index ].completed = !newTab[ index ].completed
         setTodosTabs([ ...newTab ])
     }
 
     const deleteTodo = ( content ) => {
         const index  = todosTabs.findIndex( el => el.content === content )
-        const newTab = todosTabs
+        const newTab = Array.from( todosTabs )
         newTab.splice( index, 1 )
         setTodosTabs([ ...newTab ])
     }
@@ -129,7 +129,7 @@ const App = () => {
                 }
                 else {
                     const index = todosTabs.findIndex( el => el.content === content )
-                    const newTab = todosTabs
+                    const newTab = Array.from( todosTabs )
                     newTab[ index ].content = todo
                     newTab[ index ].edited  = true
                     setTodosTabs([ ...newTab ])
